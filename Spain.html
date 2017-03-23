@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Dynamic Menu</title>
+</head>
+<body id="top">
+	<h1>The Extremadura Region of Western Spain</h1>
+	<h2>Geography Of The Region</h2>
+	<p>The autonomous community of Extremadura is in western Spain alongside the Portuguese border. It borders the Spanish regions of Castilla y Leon, Castilla La Mancha and Andalucía as well as Portugal (to the West). Covering over 40,000 square kilometers it has two provinces: Cáceres in the North and Badajoz in the South.</p>
+	<h2>Where To Stay</h2>
+	<p>There is a wide range of accommodation throughout Extremadura including small inns and guest houses ('Hostals') or think about renting a 'casa rural' (country house) if you are traveling in a group.</p>
+	<h2>Climate</h2>
+	<p>Generally Mediterranean, except for the north, where it is continental. IGenerally known for its extremes, including very hot and dry summers with frequent droughts, and its long and mild winters.</p>
+	<h2>What To See</h2>
+	<p>Extremadura hosts major events all year round including theater, music, cinema, literature and folklore. Spectacular venues include castles, medieval town squares and historic centers. There are special summer theater festivals in the Mérida, Cáceres, Alcántara and Alburquerque.</p>
+	<h2 >Gastronomy</h2>
+	<p>The quality of Extremaduran food arises from the fine quality of the local ingredients. In addition to free-range lamb and beef, fabulous cheeses, red and white wines, olive oil, honey and paprika, Extremadura is particularly renowned for Iberian ham. The 'pata negra' (blackfoot) pigs are fed on acorns in the cork-oak forests, the key to producing the world's best ham and cured sausages.</p>
+	<script>
+		var navE = document.createElement("NAV");
+		var ulE = document.createElement("UL");
+		var h2S = document.getElementsByTagName("h2");
+		var liS = new Array(h2S.length);
+		var anS = new Array(liS.length);
+		var textS = new Array(liS.length);
+		var h1S = document.getElementsByTagName("h1");
+		textS[0]=document.createTextNode("Geography Of The Region");
+		textS[1]=document.createTextNode("Where To Stay");
+		textS[2]=document.createTextNode("Climate");
+		textS[3]=document.createTextNode("What To See");
+		textS[4]=document.createTextNode("Gastronomy");
+		for(var index=0; index<liS.length; index++){
+			liS[index] = document.createElement("LI");
+			anS[index] = document.createElement("A");
+			var idName= "id"+(index+1);
+			anS[index].setAttribute("href", "#"+ idName);
+			h2S[index].setAttribute("id", idName);
+			anS[index].appendChild(textS[index]);
+			liS[index].appendChild(anS[index]);
+			navE.appendChild(liS[index]);
+		}
+		document.getElementById("top").insertBefore(navE, h1S[0]);
+
+
+
+		var pNodes;
+        pNodes = document.getElementsByTagName("p");
+		var tempA;
+        tempA = document.createElement("A");
+		tempA.setAttribute("href","#top");
+		var tempText;
+        tempText = document.createTextNode("Return to the top");
+		tempA.appendChild(tempText);
+		for(var index=0; index<pNodes.length; index++){
+			var breakLine = document.createElement("BR");
+			var breakLine2 = document.createElement("BR");
+			var pNodes = document.getElementsByTagName("p");
+			var tempA = document.createElement("A");
+			tempA.setAttribute("href","#top");
+			var tempText= document.createTextNode("Return to the top");
+			tempA.appendChild(tempText);
+			pNodes[index].appendChild(breakLine);
+			pNodes[index].appendChild(breakLine2);
+			pNodes[index].appendChild(tempA);
+		}
+	</script>
+</body>
+</html>
